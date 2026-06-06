@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>באלי בול - מציאות בול בשבילך</title>
+    <link rel="icon" type="image/png" href="images/baliabul_clear_logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+      body {
+        font-family: "Rubik", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 text-slate-800 min-h-screen m-0 p-0">
+    <div
+      class="w-full min-h-screen flex flex-col justify-between overflow-x-hidden relative"
+    >
+      <div
+        class="absolute top-[-100px] left-[-100px] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-red-500/20 rounded-full blur-[80px] sm:blur-[130px] pointer-events-none z-0"
+      ></div>
+
+      <div
+        class="absolute bottom-24 right-[-150px] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-sky-400/20 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none z-0"
+      ></div>
+
+      <header class="w-full bg-transparent py-6 relative z-10">
+        <div class="container mx-auto px-4 flex justify-center items-center">
+          <img
+            src="images/baliabul_clear_logo.png"
+            alt="באלי בול - מציאות בול בשבילך"
+            class="h-28 md:h-40 w-auto object-contain transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+      </header>
+
+      <main
+        class="container mx-auto px-4 pt-6 pb-12 max-w-4xl flex-grow flex flex-col justify-center items-center relative z-10 w-full"
+      >
+        <div class="text-center mb-10 max-w-2xl w-full">
+          <span
+            class="bg-red-100 text-red-600 text-sm font-semibold px-4 py-1 rounded-full inline-block"
+            >הצטרפות לקהילת הצרכנות</span
+          >
+          <h1
+            class="text-3xl md:text-5xl font-bold text-slate-900 mt-5 mb-6 leading-tight px-2"
+          >
+            <span class="block">אל תפספסו אף דיל!</span>
+            המציאות הכי שוות מגיעות ישר אליכם
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed px-4">
+            נמאס לכם לחפש שעות ברשת?<br />
+            אנחנו מסננים את הרעש ומביאים לכם רק את הדילים, הקופונים והמוצרים הכי
+            שווים בול בזמן.
+          </p>
+        </div>
+
+        <div
+          class="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-slate-100 w-full max-w-xl mx-auto relative z-20"
+        >
+          <form id="leadForm" class="space-y-4">
+            <div>
+              <label
+                for="userName"
+                class="block text-sm font-medium text-slate-700 mb-2"
+                >השם שלך</label
+              >
+              <input
+                type="text"
+                id="userName"
+                name="userName"
+                required
+                minlength="2"
+                placeholder="ישראל ישראלי"
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200"
+              />
+            </div>
+
+            <div class="relative">
+              <label
+                for="userEmail"
+                class="block text-sm font-medium text-slate-700 mb-2"
+                >כתובת האימייל שלך לקבלת עדכונים</label
+              >
+              <input
+                type="email"
+                id="userEmail"
+                name="userEmail"
+                required
+                autocomplete="email"
+                placeholder="yourname@gmail.com"
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-left transition duration-200"
+                dir="ltr"
+              />
+
+              <div
+                id="customSuggestions"
+                class="hidden absolute left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden"
+                dir="ltr"
+                role="listbox"
+                aria-label="הצעות לסיומת אימייל"
+              ></div>
+            </div>
+
+            <div class="hidden" aria-hidden="true">
+              <label for="honeyPot">נא לא למלא שדה זה</label>
+              <input
+                type="text"
+                id="honeyPot"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <label class="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
+              <input
+                type="checkbox"
+                id="marketingConsent"
+                name="consent"
+                required
+                class="mt-1 h-4 w-4 rounded border-slate-300 text-red-600 focus:ring-red-500"
+              />
+              <span>אני מאשר/ת קבלת דיוור, דילים ועדכונים מבאלי בול במייל.</span>
+            </label>
+
+            <button
+              type="submit"
+              id="submitBtn"
+              class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 shadow-lg shadow-red-200 flex justify-center items-center text-lg"
+            >
+              <span>אני רוצה להצטרף לניוזלטר</span>
+            </button>
+
+          </form>
+
+          <div
+            id="successMessage"
+            class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl text-center"
+          >
+            <p class="font-medium">איזה כיף! נרשמת בהצלחה. 🎉</p>
+            <p class="text-sm mt-1 text-green-700">
+              מייל אישור בדרך אליך. לחץ עליו כדי להפעיל את המנוי.
+            </p>
+          </div>
+
+          <div
+            id="errorMessage"
+            class="hidden mt-4 p-4 bg-red-50 border border-red-200 text-red-800 rounded-xl text-center"
+          >
+            <p class="font-medium">אופס! משהו השתבש.</p>
+            <p class="text-sm mt-1 text-red-700">אנא נסה שוב מאוחר יותר.</p>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 text-center text-sm text-slate-500 flex flex-col sm:flex-row items-center gap-4 justify-center px-4 relative z-10"
+        >
+          <p>
+            הצטרפו לקהילת הצרכנים של באלי בול והתחילו לקנות חכם יותר כבר מהמייל
+            הבא.
+          </p>
+        </div>
+      </main>
+
+      <footer
+        class="w-full text-center py-6 text-xs text-slate-400 border-t border-slate-200/60 bg-white block mt-auto relative z-20"
+      >
+        <p>© 2026 BALI BUL - באלי בול. כל הזכויות שמורות.</p>
+        <p class="mt-2">
+          <a
+            href="accessibility.html"
+            class="underline hover:text-slate-600 transition-colors"
+            >הצהרת נגישות</a
+          >
+        </p>
+      </footer>
+    </div>
+    <script>
+      const emailInput = document.getElementById("userEmail");
+      const suggestionsBox = document.getElementById("customSuggestions");
+      const leadForm = document.getElementById("leadForm");
+      const successMessage = document.getElementById("successMessage");
+      const errorMessage = document.getElementById("errorMessage");
+      const consentInput = document.getElementById("marketingConsent");
+      let selectedIndex = -1;
+
+      // --- חלק 1: הנהג (איך זזים) ---
+      emailInput.addEventListener("keydown", function (e) {
+        const btns = suggestionsBox.querySelectorAll("button");
+        if (btns.length === 0) return;
+
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          if (e.key === "ArrowDown")
+            selectedIndex = (selectedIndex + 1) % btns.length;
+          else selectedIndex = (selectedIndex - 1 + btns.length) % btns.length;
+
+          btns.forEach((b, i) =>
+            b.classList.toggle("bg-slate-100", i === selectedIndex),
+          );
+        } else if (e.key === "Enter" && selectedIndex > -1) {
+          e.preventDefault();
+          btns[selectedIndex].click();
+        }
+      });
+
+      // --- חלק 2: הבנאי (איך הרשימה נוצרת) ---
+      emailInput.addEventListener("input", function (e) {
+        selectedIndex = -1;
+        const val = e.target.value.trim();
+        suggestionsBox.innerHTML = "";
+
+        if (val.includes("@") && val.indexOf("@") > 0) {
+          const [pre, suf] = val.split("@");
+          const domains = [
+            "gmail.com",
+            "outlook.com",
+            "outlook.co.il",
+            "hotmail.com",
+            "walla.co.il",
+            "icloud.com",
+          ];
+          const filtered = domains.filter(
+            (d) =>
+              (!suf || d.startsWith(suf.toLowerCase())) &&
+              d !== suf.toLowerCase(),
+          );
+
+          if (filtered.length > 0) {
+            suggestionsBox.classList.remove("hidden");
+            filtered.forEach((d) => {
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className =
+                "w-full text-left px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-100 block border-b border-slate-100";
+              btn.textContent = `${pre}@${d}`;
+              btn.onmousedown = (e) => e.preventDefault();
+              btn.onclick = () => {
+                emailInput.value = btn.textContent;
+                suggestionsBox.classList.add("hidden");
+                selectedIndex = -1;
+              };
+              suggestionsBox.appendChild(btn);
+            });
+          } else suggestionsBox.classList.add("hidden");
+        } else suggestionsBox.classList.add("hidden");
+      });
+
+      // --- חלק 3: עזרים ושליחה ---
+
+      // סגירת התפריט בלחיצה מחוץ לשדה
+      document.addEventListener("click", (e) => {
+        if (e.target !== emailInput) suggestionsBox.classList.add("hidden");
+      });
+
+      // הסתרת הודעת הצלחה ברגע שמתחילים להקליד מחדש
+      leadForm.addEventListener("input", () => {
+        if (!successMessage.classList.contains("hidden")) {
+          successMessage.classList.add("hidden");
+        }
+      });
+
+      // לוגיקת השליחה
+      leadForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        successMessage.classList.add("hidden");
+        errorMessage.classList.add("hidden");
+
+        const honeyPotValue = document.getElementById("honeyPot").value.trim();
+        if (honeyPotValue) return;
+
+        const btn = document.getElementById("submitBtn");
+        const lead = {
+          name: leadForm.elements.userName.value.trim(),
+          email: leadForm.elements.userEmail.value.trim(),
+          consent: consentInput.checked,
+          source:
+            new URLSearchParams(window.location.search).get("ref") ||
+            "newsletter_landing",
+          page: window.location.href,
+        };
+
+        btn.disabled = true;
+        btn.innerHTML = "<span>מצרף אותך לקהילה...</span>";
+
+        try {
+          await new Promise((r) => setTimeout(r, 1500));
+
+          console.log("Simulated lead signup:", lead);
+
+          // הצלחה
+          successMessage.classList.remove("hidden");
+
+          // איפוס השדות
+          leadForm.reset();
+        } catch (error) {
+          errorMessage.classList.remove("hidden");
+          console.error("Simulated lead signup failed:", error);
+        } finally {
+          // החזרת הכפתור למצב רגיל
+          btn.disabled = false;
+          btn.innerHTML = "<span>אני רוצה להצטרף לניוזלטר</span>";
+        }
+      });
+    </script>
+  </body>
+</html>
