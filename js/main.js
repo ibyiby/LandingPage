@@ -5,6 +5,7 @@ const leadForm = document.getElementById("leadForm");
 const successMessage = document.getElementById("successMessage");
 const errorMessage = document.getElementById("errorMessage");
 const consentInput = document.getElementById("marketingConsent");
+const honeyPotInput = document.getElementById("honeyPot");
 const submitBtn = document.getElementById("submitBtn");
 
 let selectedIndex = -1;
@@ -100,11 +101,32 @@ function buildLead() {
     name: leadForm.elements.userName.value.trim(),
     email: leadForm.elements.userEmail.value.trim(),
     consent: consentInput.checked,
+    honeypot: honeyPotInput.value.trim(),
     source:
       new URLSearchParams(window.location.search).get("ref") ||
       "newsletter_landing",
     page: window.location.href,
   };
+}
+
+// ============================================================
+// Submit Lead to Netlify Function
+// ============================================================
+async function submitLead(lead) {
+  const response = await fetch("/.netlify/functions/subscribe", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(lead),
+  });
+
+  const result = await response.json().catch(() => null);
+
+  if (!response.ok || result?.ok !== true) {
+    throw new Error(result?.code || "Signup failed");
+  }
 }
 
 // ============================================================
@@ -128,28 +150,22 @@ function initLeadForm() {
     successMessage.classList.add("hidden");
     errorMessage.classList.add("hidden");
 
-    const honeyPotValue = document.getElementById("honeyPot").value.trim();
-    if (honeyPotValue) return;
-
     const lead = buildLead();
 
     setSubmitLoading(true);
 
     try {
-      await new Promise((r) => setTimeout(r, 1500));
+      await submitLead(lead);
 
-      console.log("Simulated lead signup:", lead);
+      // Preserve the existing silent honeypot behavior.
+      if (lead.honeypot) return;
 
-      // Success
       successMessage.classList.remove("hidden");
-
-      // Reset form
       leadForm.reset();
     } catch (error) {
       errorMessage.classList.remove("hidden");
-      console.error("Simulated lead signup failed:", error);
+      console.error("Lead signup failed:", error);
     } finally {
-      // Restore button state
       setSubmitLoading(false);
     }
   });
