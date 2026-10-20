@@ -17,6 +17,8 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/email-suggestions.js" defer></script>
+    <script src="js/sendmsg-success.js" defer></script>
   </head>
 
   <body class="bg-slate-50 text-slate-800 min-h-screen m-0 p-0">
@@ -65,90 +67,17 @@
         <div
           class="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-slate-100 w-full max-w-xl mx-auto relative z-20"
         >
-          <form id="leadForm" class="space-y-4">
-            <div>
-              <label
-                for="userName"
-                class="block text-sm font-medium text-slate-700 mb-2"
-                >השם שלך</label
-              >
-              <input
-                type="text"
-                id="userName"
-                name="userName"
-                required
-                minlength="2"
-                maxlength="100"
-                placeholder="ישראל ישראלי"
-                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                for="userEmail"
-                class="block text-sm font-medium text-slate-700 mb-2"
-                >כתובת האימייל שלך לקבלת עדכונים</label
-              >
-              <input
-                type="email"
-                id="userEmail"
-                name="userEmail"
-                required
-                maxlength="254"
-                autocomplete="email"
-                placeholder="yourname@gmail.com"
-                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-left transition duration-200"
-                dir="ltr"
-              />
-
-              <div
-                id="customSuggestions"
-                class="hidden absolute left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden"
-                dir="ltr"
-                role="listbox"
-                aria-label="הצעות לסיומת אימייל"
-              ></div>
-            </div>
-
-            <div class="hidden" aria-hidden="true">
-              <label for="honeyPot">נא לא למלא שדה זה</label>
-              <input
-                type="text"
-                id="honeyPot"
-                name="honeypot"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </div>
-
-            <label
-              class="flex items-start gap-3 text-sm text-slate-600 leading-relaxed"
-            >
-              <input
-                type="checkbox"
-                id="marketingConsent"
-                name="consent"
-                required
-                class="mt-1 h-4 w-4 rounded border-slate-300 text-red-600 focus:ring-red-500"
-              />
-              <span
-                >אני מאשר/ת קבלת דיוור, דילים ועדכונים מבאלי בול במייל.</span
-              >
-            </label>
-
-            <button
-              type="submit"
-              id="submitBtn"
-              class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 shadow-lg shadow-red-200 flex justify-center items-center text-lg"
-            >
-              <span>אני רוצה להצטרף לניוזלטר</span>
-            </button>
-          </form>
+          <div class="sendmsg-form-wrapper w-full mx-auto">
+            <!-- sendmsg form start -->
+            <div class="fc-form form_346275 type-vertical rtl" data-form-id="346275-3a8c169a-bb1a-bfbe-b0d5-9337aebe1ea5-52731"><div id="containingDiv7eaada0" class="fc_container type-vertical field-inside" data-action="https://panel.sendmsg.co.il/AddUserFromSite.aspx" data-method="post" data-target="stay_iframe" data-lang="heb" data-height="475" style="" data-width="500" data-max-width="500px"><div class="fc_header empty-header cke_display_version_check"><p><br></p></div><div align="center" cellspacing="0" class="fc_base table fc-div-struct"><div class="tbody" style=""><div class="tr fc-row fc-row-field" draggable="false"><div class="td fc-cell fc-cell-text"><span class="fc-text">השם שלך&nbsp;</span><span class="fc-must-star"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">*</font></font></span></div><div class="td fc-cell fc-cell-field"><input maxlength="250" type="text" id="1" name="1" data-fc-type="text" class="fc_input_text" data-fc-id="1" data-fc-must-fill="true" placeholder="השם שלך&nbsp;*"></div></div><div class="tr fc-row fc-row-field"><div class="td fc-cell fc-cell-text"><span class="fc-text">האימייל שלך </span><span class="fc-must-star">*</span></div><div class="td fc-cell fc-cell-field"><input maxlength="250" type="email" id="email" name="email" data-fc-type="text" class="fc_input_text" data-fc-id="email" data-fc-must-fill="true" placeholder="האימייל שלך *"></div></div><div class="tr fc-button-row fc-hidden-row fc-colspan" draggable="false"><div colspan="2" style="padding-top: 7px; text-align: center;" class="td fc-cell-text"><input value="אני רוצה להצטרף לניוזלטר" class="MustField fc_button" type="button" onclick="return submitForm(this);"><input type="hidden" class="MustField" name="form" value="346275__fcf38ba3-b664-421c-b83e-b911016657e3" data-fc-id="form"></div></div><div class="tr fc-row fc-row-field fc-checkbox-row fc-confirm-row fc-colspan" draggable="false"><div class="td fc-cell fc-cell-field fc-cell-text" colspan="2"><label onclick=""><input type="checkbox" class="fc_confirm" id="confirm" name="confirm" data-fc-id="confirm" data-fc-type="confirm" value="1"><span class="fc-text fc_confirm_text"><p style="text-align:center"><span style="font-size:14px">אני מאשר/ת קבלת דיוור, דילים ועדכונים מבאלי בול במייל.</span></p></span></label></div></div></div></div><link type="text/css" rel="stylesheet" id="form_346275" href="https://fonts.googleapis.com/css?family=Rubik"><link type="text/css" rel="stylesheet" id="form_346275" href="https://fonts.googleapis.com/css?family=Rubik"><link type="text/css" rel="stylesheet" id="form_346275" href="https://fonts.googleapis.com/css?family=Rubik"><link type="text/css" rel="stylesheet" id="fc_header_346275" href="https://fonts.googleapis.com/css?family=Rubik"><link type="text/css" rel="stylesheet" id="fc_base_346275" href="https://fonts.googleapis.com/css?family=Rubik"><link type="text/css" rel="stylesheet" id="fc_button_346275" href="https://fonts.googleapis.com/css?family=Rubik"></div><link href="https://app.creaditor.com/formCreator/assets/fc-basics.min.css" rel="stylesheet"><script type="text/javascript" src="https://app.creaditor.com/formCreator/assets/fc-basics.min.js"></script><link data-id="346275" href="https://panel.sendmsg.co.il/userfiles/site52731/FormCreate/fc_346275.css" rel="stylesheet"></div>
+            <!-- sendmsg form end -->
+          </div>
 
           <div
-            id="successMessage"
+            id="sendmsgSuccessMessage"
             class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl text-center"
+            role="status"
+            aria-live="polite"
           >
             <p class="font-medium">איזה כיף! נרשמת בהצלחה 🎉</p>
 
@@ -159,14 +88,6 @@
             <p class="text-sm mt-2 text-green-700">
               אם המייל לא מופיע, כדאי לבדוק גם ב״קידומי מכירות״ או בספאם.
             </p>
-          </div>
-
-          <div
-            id="errorMessage"
-            class="hidden mt-4 p-4 bg-red-50 border border-red-200 text-red-800 rounded-xl text-center"
-          >
-            <p class="font-medium">אופס! משהו השתבש.</p>
-            <p class="text-sm mt-1 text-red-700">אנא נסה שוב מאוחר יותר.</p>
           </div>
         </div>
 
@@ -193,6 +114,5 @@
         </p>
       </footer>
     </div>
-    <script src="js/main.js" defer></script>
   </body>
 </html>

@@ -1,3 +1,244 @@
 body {
   font-family: "Rubik", sans-serif;
 }
+
+/* Local presentation override for the exported SendMsg HTML form. */
+.sendmsg-form-wrapper,
+.sendmsg-form-wrapper .fc-form,
+.sendmsg-form-wrapper .fc_container,
+.sendmsg-form-wrapper .fc_base,
+.sendmsg-form-wrapper .tbody,
+.sendmsg-form-wrapper .fc-row,
+.sendmsg-form-wrapper .fc-cell,
+.sendmsg-form-wrapper .fc-button-row,
+.sendmsg-form-wrapper .fc-button-row .fc-cell-text {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sendmsg-form-wrapper {
+  margin-inline: auto !important;
+}
+
+.sendmsg-form-wrapper .fc-form,
+.sendmsg-form-wrapper .fc_container {
+  display: block !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.sendmsg-form-wrapper .fc_header,
+.sendmsg-form-wrapper .fc_header * {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sendmsg-form-wrapper .fc_base {
+  display: block !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.sendmsg-form-wrapper .tbody {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 1rem !important;
+}
+
+.sendmsg-form-wrapper .fc-row,
+.sendmsg-form-wrapper .fc-button-row {
+  display: block !important;
+  border: 0 !important;
+  border-spacing: 0 !important;
+}
+
+.sendmsg-form-wrapper .fc-row.fc-row-field:not(.fc-checkbox-row) {
+  order: 1;
+}
+
+.sendmsg-form-wrapper .fc-row.fc-row-field:not(.fc-checkbox-row) > .fc-cell-text {
+  display: none !important;
+}
+
+.sendmsg-form-wrapper .fc-row.fc-row-field:not(.fc-checkbox-row) .fc-cell-field {
+  display: block !important;
+  width: 100% !important;
+}
+
+.sendmsg-form-wrapper .fc_input_text {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0.75rem 1rem !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.75rem !important;
+  background: #fff !important;
+  color: #1e293b !important;
+  direction: rtl !important;
+  font: inherit !important;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  text-align: right !important;
+}
+
+.sendmsg-form-wrapper .fc_input_text::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+  direction: rtl !important;
+  unicode-bidi: plaintext;
+  text-align: right !important;
+}
+
+.sendmsg-form-wrapper .fc_input_text:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px #fee2e2 !important;
+  outline: none !important;
+}
+
+.sendmsg-form-wrapper #email {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.sendmsg-form-wrapper #email::placeholder {
+  text-align: right !important;
+}
+
+.sendmsg-form-wrapper .email-suggestions-field {
+  position: relative;
+}
+
+.sendmsg-form-wrapper .email-suggestions {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 0.25rem);
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.1);
+  direction: ltr;
+  text-align: left;
+}
+
+.sendmsg-form-wrapper .email-suggestions[hidden] {
+  display: none;
+}
+
+.sendmsg-form-wrapper .email-suggestions button {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 0;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.sendmsg-form-wrapper .email-suggestions button:last-child {
+  border-bottom: 0;
+}
+
+.sendmsg-form-wrapper .email-suggestions button:hover,
+.sendmsg-form-wrapper .email-suggestions button.is-active {
+  background: #f1f5f9;
+}
+
+.sendmsg-form-wrapper .fc-confirm-row {
+  order: 2;
+  display: block !important;
+  direction: rtl !important;
+}
+
+.sendmsg-form-wrapper .fc-confirm-row .fc-cell,
+.sendmsg-form-wrapper .fc-confirm-row .fc-cell-text {
+  display: block !important;
+}
+
+.sendmsg-form-wrapper .fc-confirm-row label {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  color: #475569 !important;
+  cursor: pointer;
+  font-size: 0.875rem !important;
+  line-height: 1.625 !important;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.sendmsg-form-wrapper .fc-confirm-row .fc_confirm {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  min-height: 1rem !important;
+  flex: 0 0 1rem !important;
+  margin: 0 !important;
+  accent-color: #dc2626;
+}
+
+.sendmsg-form-wrapper .fc_confirm_text,
+.sendmsg-form-wrapper .fc_confirm_text p,
+.sendmsg-form-wrapper .fc_confirm_text p span {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  text-align: right !important;
+  white-space: inherit !important;
+}
+
+.sendmsg-form-wrapper .fc-button-row {
+  order: 3;
+}
+
+.sendmsg-form-wrapper .fc-button-row .fc-cell-text {
+  display: block !important;
+  padding-top: 0 !important;
+}
+
+.sendmsg-form-wrapper .fc_button {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0.875rem 1rem !important;
+  border: 0 !important;
+  border-radius: 0.75rem !important;
+  background: #dc2626 !important;
+  box-shadow: 0 10px 15px -3px rgb(254 202 202) !important;
+  color: #fff !important;
+  cursor: pointer;
+  font: inherit !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+.sendmsg-form-wrapper .fc_button:hover {
+  background: #b91c1c !important;
+}
